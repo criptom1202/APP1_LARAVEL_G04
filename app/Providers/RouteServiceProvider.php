@@ -56,7 +56,8 @@ class RouteServiceProvider extends ServiceProvider
 
 
     protected function mapCargosRoutes(){
-        Route::namespace($this->namespace)
+        Route::middleware('web')
+        ->namespace($this->namespace)
         ->group(base_path('routes/intranet/cargo.php'));
       }
 

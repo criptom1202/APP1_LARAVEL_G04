@@ -14,10 +14,11 @@ class CargoController extends Controller
      */
     public function index()
     {
+        //validacion
        
-        return Cargo::all();
-        //return view('cargos/index');
-   
+       $cargos =  Cargo::all();
+       return view('cargos/index', compact('cargos'));
+       //return redirect()->route('cargo.create')->with('estado', 'Registro exitoso');
     }
 
     /**
@@ -27,7 +28,7 @@ class CargoController extends Controller
      */
     public function create()
     {
-        return view('cargos/create'); 
+        return view('cargos.create'); 
     }
 
     /**
@@ -38,7 +39,26 @@ class CargoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       //return $request;
+
+        // $cargo = new Cargo;
+        // $cargo->cargo = $request->cargo;
+        // $cargo->descripcion = $request->descripcion;
+        // $cargo->save();
+
+        // $cargo = Cargo::create([
+        //     'cargo' =>  $request->cargo,
+        //     'descripcion' => $request->descripcion
+        // ]);
+
+        date_default_timezone_set('America/Lima');
+
+
+
+        $cargo = Cargo::create($request->all());
+
+
+
     }
 
     /**
@@ -49,7 +69,10 @@ class CargoController extends Controller
      */
     public function show($id)
     {
-        //
+        //eturn "Código: " .  $id;
+        //$cargo = Cargo::where('id', $id)->get();
+        $cargo = Cargo::find($id);
+        return $cargo;
     }
 
     /**
@@ -58,9 +81,9 @@ class CargoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id = null)
+    public function edit(Cargo $cargo)
     {
-        return view('cargos/edit');
+        return view('cargos/edit', compact('cargo'));
     }
 
     /**
@@ -72,7 +95,7 @@ class CargoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
     }
 
     /**
