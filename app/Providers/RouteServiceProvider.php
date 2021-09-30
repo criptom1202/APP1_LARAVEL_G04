@@ -36,7 +36,7 @@ class RouteServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->configureRateLimiting();
-        $this->limiteAcceso();
+        //$this->limiteAcceso();
 
         $this->routes(function () {
             Route::prefix('api')

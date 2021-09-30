@@ -18,7 +18,6 @@ class CargoController extends Controller
        
        $cargos =  Cargo::all();
        return view('cargos/index', compact('cargos'));
-       //return redirect()->route('cargo.create')->with('estado', 'Registro exitoso');
     }
 
     /**
@@ -51,12 +50,16 @@ class CargoController extends Controller
         //     'descripcion' => $request->descripcion
         // ]);
 
+        $request->validate([
+            'cargo' => 'required | max:50 | unique:cargos,cargo',
+            'descripcion' => 'required | max:255'
+        ]);
+        
+
+
         date_default_timezone_set('America/Lima');
-
-
-
         $cargo = Cargo::create($request->all());
-
+        return redirect()->route('cargo.index')->with('estado', 'Registro exitoso');
 
 
     }
@@ -67,11 +70,11 @@ class CargoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Cargo $cargo)
     {
         //eturn "Código: " .  $id;
         //$cargo = Cargo::where('id', $id)->get();
-        $cargo = Cargo::find($id);
+        // $cargo = Cargo::find($id);
         return $cargo;
     }
 
@@ -93,9 +96,16 @@ class CargoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Cargo $cargo)
     {
-        
+    //     $cargo = Cargo::find(5);
+    //     $cargo->cargo = 'Administrador';
+    //     $cargo->save();
+        // Cargo::where('id', $id)
+        // ->update(['cargo' => $request->cargo, 'descripcion' => $request->descripcion]);
+
+        $cargo->update($request->all());
+        return redirect()->route('cargo.index')->with('estado', 'Actualización correcta');
     }
 
     /**
@@ -104,8 +114,12 @@ class CargoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Cargo $cargo)
     {
-        //
+        
+        $cargo->delete();
+        // $cargo = Cargo::find($id);
+        // $cargo->delete();
+        return redirect()->route('cargo.index')->with('estado', 'Eliminación correcta');
     }
 }

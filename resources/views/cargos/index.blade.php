@@ -1,5 +1,21 @@
 <h1>LISTA DE CARGOS</h1>
 
+<div>
+    @if(session('estado'))
+        <div>
+            {{ session('estado') }}
+        </div>
+    @endif
+</div>
+
+<a href="{{ route('cargo.create') }}">Nuevo</a>
+
+
+
+
+
+
+
 
 <table border="1">
     <thead>
@@ -18,9 +34,15 @@
                 <td>{{ $cargo->id }}</td>
                 <td>{{ $cargo->cargo }}</td>
                 <td>{{ $cargo->descripcion }}</td>
-                <td><a href="{{ route('cargo.show', $cargo->id ) }}">Detalles</a></td>
+                <td><a href="{{ route('cargo.show', $cargo ) }}">Detalles</a></td>
                 <td><a href="{{ route('cargo.edit', $cargo )}}">Modificar</a></td>
-                <td><a href="#">Eliminar</a></td>
+                <td>
+                    <form action="{{ route('cargo.destroy', $cargo ) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <input type="submit" value="eliminar">
+                    </form>
+                </td>
             </tr>
         @endforeach       
     </tbody>

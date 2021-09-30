@@ -6,7 +6,19 @@
 @endif
 
 
+
+
+
 <H1>FORMULARIO DE NUEVO CARGO</H1>
+
+@if ($errors->any())
+    <ul>
+        @foreach( $errors->all() as $error)
+            <li> {{ $error }}</li>
+        @endforeach
+    </ul>
+@endif
+
 
 <form action="{{ route('cargo.store') }} " method="POST">
     @csrf
