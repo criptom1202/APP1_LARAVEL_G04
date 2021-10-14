@@ -16,7 +16,7 @@ class CargoController extends Controller
     {
         //validacion
        
-       $cargos =  Cargo::all();
+       $cargos =  Cargo::paginate(10);
        return view('cargos/index', compact('cargos'));
     }
 

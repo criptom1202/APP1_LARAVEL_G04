@@ -50,6 +50,9 @@ Route::fallback(function(){
 // });
 
 
+Route::get('testeo', function(){
+    return view('testeo');
+});
 
 
 
