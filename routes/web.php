@@ -57,6 +57,11 @@ Route::get('testeo', function(){
 
 
 
+Route::get('testeo2', function(){
+    return view('testeo2');
+});
+
+
 
 
 

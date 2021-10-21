@@ -1,0 +1,32 @@
+.menu{
+    @apply pl-10 py-3 hover:bg-red-800 font-bold flex flex-row;
+}
+
+.contenedor{
+    @apply container mx-auto w-10/12;
+}
+
+.boton-azul{
+    @apply py-2 px-7 rounded-full bg-blue-900 text-white hover:bg-red-800;
+}
+.boton-gris{
+    @apply py-2 px-7 rounded-full border-2 border-blue-900 mr-4 hover:bg-red-800 hover:text-white hover:border-red-800;
+}
+
+.th-tabla{
+    @apply px-4 py-3 bg-blue-900 text-white;
+}
+
+.tbody-tabla{
+    @apply divide-y-2 divide-gray-200 divide-solid text-sm;
+}
+
+/*formulario*/
+
+.titulo-form{
+    @apply text-4xl font-bold py-10;
+}
+
+.inputs{
+    @apply rounded py-1 pl-2 mt-2 mb-3 focus:outline-none focus:ring-2 focus:ring-blue-800 shadow-sm;
+}

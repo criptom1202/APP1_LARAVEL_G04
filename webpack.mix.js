@@ -26,4 +26,7 @@ mix.js('resources/js/a1.js', 'public/js/app.js')
 */
 mix.postCss('resources/css/app.css', 'public/css', [
     require('tailwindcss'),
-]);
+])
+    .postCss('resources/css/estilos.css', 'public/css', [
+        require('tailwindcss'),
+    ]);
