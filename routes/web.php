@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EmpleadoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -65,6 +66,7 @@ Route::get('testeo2', function(){
 
 
 
+Route::resource('empleados', EmpleadoController::class)->names('empleados');
 
 
 

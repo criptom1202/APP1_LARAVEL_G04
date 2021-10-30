@@ -27,7 +27,8 @@ class CargoController extends Controller
      */
     public function create()
     {
-        return view('cargos.create'); 
+        $cargo = new Cargo();
+        return view('cargos.create', compact('cargo')); 
     }
 
     /**
@@ -103,7 +104,10 @@ class CargoController extends Controller
     //     $cargo->save();
         // Cargo::where('id', $id)
         // ->update(['cargo' => $request->cargo, 'descripcion' => $request->descripcion]);
-
+        $request->validate([
+            'cargo' => 'required | max:50 | unique:cargos,cargo,'.$cargo->id,
+            'descripcion' => 'required | max:255,'.$cargo->id
+        ]);
         $cargo->update($request->all());
         return redirect()->route('cargo.index')->with('estado', 'Actualización correcta');
     }
