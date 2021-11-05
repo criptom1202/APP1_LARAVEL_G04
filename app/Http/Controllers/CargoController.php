@@ -20,6 +20,11 @@ class CargoController extends Controller
        return view('cargos/index', compact('cargos'));
     }
 
+    public function indexJson(){
+        $cargos =  Cargo::paginate(10);
+        return $cargos;
+    }
+
     /**
      * Show the form for creating a new resource.
      *

@@ -24,7 +24,7 @@ Route::prefix('intranet')->group(function(){
     // Route::delete('cargo/destroy/{cargo}',  [CargoController::class, 'destroy'])->name('cargo.destroy');
 
     Route::resource('cargos', CargoController::class)->names('cargo');
-
+    Route::get('cargos-json', [CargoController::class, 'indexJson']);
 });
 
 

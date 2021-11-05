@@ -1,6 +1,6 @@
 <x-layout>
     <x-slot name="principal">
-        <div class="contenedor bg-gray-100 h-screen">
+        <div class="contenedor bg-gray-100">
             <h1 class="titulo-form">{{ $cTitulo }}</h1>
 
            
@@ -20,6 +20,10 @@
                 {{ $sInputs }}
             </form>
         </div>
+
+        
+        {{ $sModal ?? null }}
+        
 
     </x-slot>
 </x-layout>

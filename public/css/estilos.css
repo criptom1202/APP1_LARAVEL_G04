@@ -157,3 +157,47 @@
   --tw-ring-opacity: 1;
   --tw-ring-color: rgba(30, 64, 175, var(--tw-ring-opacity));
 }
+
+.modal{
+  position: fixed;
+  top: 0;
+  left:0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0,0,0, .8);
+  transform: scale(0);
+  transition: transform .2s;
+}
+
+.modal .contenedor{
+  --tw-bg-opacity: 1;
+  background-color: rgba(243, 244, 246, var(--tw-bg-opacity));
+  width: 50%;
+  height: 80%;
+}
+
+.moda .header{
+  --tw-bg-opacity: 1;
+  background-color: rgba(31, 41, 55, var(--tw-bg-opacity));
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  font-weight: 700;
+  --tw-text-opacity: 1;
+  color: rgba(255, 255, 255, var(--tw-text-opacity));
+}
+
+.modal .contenido{
+  width: 90%;
+  height: 80%;
+  margin: auto;
+  overflow-y: scroll;
+}
+
+.modal-mostrar{
+  transform: scale(1);
+}

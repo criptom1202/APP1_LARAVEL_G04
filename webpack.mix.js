@@ -24,9 +24,18 @@ mix.sass('resources/sass/app.scss', 'public/css')
 mix.js('resources/js/a1.js', 'public/js/app.js')
     .js('resources/js/a2.js', 'public/js/app.js');
 */
+
+/*
 mix.postCss('resources/css/app.css', 'public/css', [
     require('tailwindcss'),
 ])
     .postCss('resources/css/estilos.css', 'public/css', [
         require('tailwindcss'),
     ]);
+*/
+
+//mix.js('resources/js/app.js', 'public/js');
+mix.js('resources/js/main.js', 'public/js');
+mix.postCss('resources/css/estilos.css', 'public/css', [
+    require('tailwindcss'),
+])

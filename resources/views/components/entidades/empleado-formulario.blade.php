@@ -40,7 +40,28 @@
             <button class="boton-azul">{{ $caAccion }}</button>
         </div>
         
+        <button id="btn_test" class="boton-azul">Test</button>
         
+    </x-slot>
+
+    <x-slot name="sModal">
+        <x-modal cTitulo="Cargo">
+        <table border="1">
+                <thead>
+                    <tr>
+                        <th class="th-tabla rounded-tl-lg">#</th>
+                        <th class="th-tabla">ID</th>
+                        <th class="th-tabla">CARGO</th>
+                        <th class="th-tabla">DESCRIPCION</th>
+                      </tr>
+                </thead>
+
+                <tbody id="tabla_modal_cargo" class="tbody-tabla">
+                
+                       
+                </tbody>
+            </table>
+        </x-modal>
     </x-slot>
 
 
